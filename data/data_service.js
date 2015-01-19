@@ -13,6 +13,7 @@
 
 		  return {
 		  	getPostsData: getPostsData
+
 		  };
 
 	}]);
