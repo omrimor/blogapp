@@ -1,0 +1,160 @@
+<div class="container" ng-controller="AllPostsCtrl">
+
+	<div class="row">
+
+		<!-- Blog Entries Column -->
+		<section class="col-md-8">
+			<h1 class="page-header">All Posts</h1>
+
+			<!-- Begin Post -->
+			<article>
+				<header>
+					<h2>
+						<a href="post.html">AngularJS - Controllers</a>
+					</h2>
+
+					<p>
+						<small class="glyphicon glyphicon-user"></small>
+						by <a href="#">Ilan Cohen</a>
+					</p>
+					<p>
+						<small class="glyphicon glyphicon-time"></small>
+						Posted on 14 Jan, 2015
+					</p>
+				</header>
+				<hr>
+
+				<figure>
+					<img class="img-responsive" src="http://placehold.it/900x300"
+						alt="">
+				</figure>
+				<hr>
+
+				<!-- Post Description -->
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur quis debitis suscipit assumenda unde possimus, culpa voluptatum ducimus delectus, recusandae fuga eaque porro nam fugiat vel, illo reiciendis corporis quae?</p>
+				<br>
+
+				<footer class="clearfix">
+					<p class="pull-left">
+						<b>Tags:&nbsp;</b>
+						<a href="#" class="label label-default">JavaScript</a>
+						<a href="#" class="label label-default">AngularJS</a>
+					</p>
+
+					<a class="btn btn-primary pull-right" href="post.html">
+						Read More <i class="glyphicon glyphicon-chevron-right"></i>
+					</a>
+				</footer>
+			</article>
+			<hr>
+			<!-- End of Post -->
+
+			<!-- Begin Post -->
+			<article>
+				<header>
+					<h2>
+						<a href="post.html">Grunt - Custom Tasks</a>
+					</h2>
+
+					<p>
+						<small class="glyphicon glyphicon-user"></small>
+						by <a href="#">Alex Ilyaev</a>
+					</p>
+					<p>
+						<small class="glyphicon glyphicon-time"></small>
+						Posted on 10 Dec, 2014
+					</p>
+				</header>
+				<hr>
+
+				<figure>
+					<img class="img-responsive" src="http://placehold.it/900x300"
+						alt="">
+				</figure>
+				<hr>
+
+				<!-- Post Description -->
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur quis debitis suscipit assumenda unde possimus, culpa voluptatum ducimus delectus, recusandae fuga eaque porro nam fugiat vel, illo reiciendis corporis quae?</p>
+				<br>
+
+				<footer class="clearfix">
+					<p class="pull-left">
+						<b>Tags:&nbsp;</b>
+						<a href="#" class="label label-default">Grunt</a>
+						<a href="#" class="label label-default">Tools</a>
+					</p>
+
+					<a class="btn btn-primary pull-right" href="post.html">
+						Read More <i class="glyphicon glyphicon-chevron-right"></i>
+					</a>
+				</footer>
+			</article>
+			<hr>
+			<!-- End of Post -->
+
+			<!-- Begin Post -->
+			<article>
+				<header>
+					<h2>
+						<a href="post.html">jQuery - Events, AJAX</a>
+					</h2>
+
+					<p>
+						<small class="glyphicon glyphicon-user"></small>
+						by <a href="#">Amit Choukroun</a>
+					</p>
+					<p>
+						<small class="glyphicon glyphicon-time"></small>
+						Posted on 3 Dec, 2014
+					</p>
+				</header>
+				<hr>
+
+				<figure>
+					<img class="img-responsive" src="http://placehold.it/900x300"
+						alt="">
+				</figure>
+				<hr>
+
+				<!-- Post Description -->
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur quis debitis suscipit assumenda unde possimus, culpa voluptatum ducimus delectus, recusandae fuga eaque porro nam fugiat vel, illo reiciendis corporis quae?</p>
+				<br>
+
+				<footer class="clearfix">
+					<p class="pull-left">
+						<b>Tags:&nbsp;</b>
+						<a href="#" class="label label-default">JavaScript</a>
+						<a href="#" class="label label-default">jQuery</a>
+					</p>
+
+					<a class="btn btn-primary pull-right" href="post.html">
+						Read More <i class="glyphicon glyphicon-chevron-right"></i>
+					</a>
+				</footer>
+			</article>
+			<hr>
+			<!-- End of Post -->
+
+			<!-- Pager -->
+			<ul class="pager">
+				<li class="previous">
+					<a href="#">&larr; Older</a>
+				</li>
+				<li class="next">
+					<a href="#">Newer &rarr;</a>
+				</li>
+			</ul>
+		</section>
+
+		<!-- Blog Sidebar Widgets Column -->
+		<ng-include src="'sidebar/sidebar.html'"></ng-include>
+
+	</div>
+	<!-- /.row -->
+
+	<hr>
+
+	<!-- Footer -->
+	<ng-include src="'footer/footer.html'"></ng-include>
+
+</div>

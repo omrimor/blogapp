@@ -27,10 +27,10 @@ module.exports = function (grunt) {
 				files: ['Gruntfile.js', 'package.json']
 			},
 			css: {
-				files: ['*/**/*.css']
+				files: ['**/**/*.css']
 			},
 			js: {
-				files: ['*/**/*.js']
+				files: ['**/**/*.js']
 			},
 			lib: {
 				files: ['lib/css/**/*.css', 'lib/js/**/*.js']
