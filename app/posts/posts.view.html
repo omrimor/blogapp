@@ -1,0 +1,55 @@
+<section class="col-md-8">
+	<h1 class="page-header">All Posts</h1>
+
+	<div ng-repeat="post in postsData | startFrom:currentPage*pageSize | limitTo:pageSize">
+		<article>
+			<header>
+				<h2>
+					<a href="{{post.source}}">{{post.title}}</a>
+				</h2>
+
+				<p>
+					<small class="glyphicon glyphicon-user"></small>
+					by <a href="#">{{post.author}}</a>
+				</p>
+				<p>
+					<small class="glyphicon glyphicon-time"></small>
+					Posted on {{post.date | date: mediumDate}}
+				</p>
+			</header>
+			<hr>
+			<figure>
+				<img class="img-responsive" src="{{post.image}}" alt="">
+			</figure>
+			<hr>
+
+			<!-- Post Description -->
+			<p>{{post.description}}</p>
+			<br>
+			<footer class="clearfix">
+				<p class="pull-left">
+					<b>Tags:&nbsp;</b>
+					<span ng-repeat="tag in post.tags">
+						<a href="#" class="label label-default">{{tag}}</a>
+					</span>
+				</p>
+
+				<a class="btn btn-primary pull-right" href="{{post.source}}">
+					Read More <i class="glyphicon glyphicon-chevron-right"></i>
+				</a>
+			</footer>
+		</article>
+		<hr>
+	</div>
+
+
+	<!-- Pager -->
+	<ul class="pager">
+		<li class="previous">
+			<a href="#" ng-disabled="currentPage === 0" ng-click="currentPage = currentPage-1">&larr; Older</a>
+		</li>
+		<li class="next">
+			<a href="#" ng-disabled="currentPage >= postsData.length/pageSize - 1" ng-click="currentPage = currentPage+1">Newer &rarr;</a>
+		</li>
+	</ul>
+</section>

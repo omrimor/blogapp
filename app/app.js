@@ -5,18 +5,20 @@
 	app.config(['$routeProvider', function($routeProvider){
 		$routeProvider
 			.when('/',{
-				templateUrl: 'all_posts/all_posts.html',
+				redirectTo: '/posts'
+			})
+			.when('/posts/:page?',{
+				templateUrl: 'app/posts/posts.view.html',
 				controller: 'AllPostsCtrl'
 			})
-			.when('/login',{
-				templateUrl: 'partials/login.html',
+			.when('/admin',{
+				templateUrl: 'app/admin/admin.html',
 				controller: 'LoginCtrl'
 			})
 			.when('/employee/:employeeId',{
 				templateUrl: 'partials/employee.html',
 				controller: 'employeeCtrl'
 			})
-
 			.otherwise({
 				redirectTo: '/'
 			});
