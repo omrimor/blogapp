@@ -25,7 +25,7 @@
 	// StartFrom custom filter
 	app.filter('startFrom', [function() {
 	    return function(arr, start) {
-	    	// Bug: this is where i get the error
+	    	// Bug: this is where i get the error - arr is undefined
 	    	console.log('im after ' + arr);
 
 	        start++;
