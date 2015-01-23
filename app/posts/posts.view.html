@@ -5,7 +5,7 @@
 		<article>
 			<header>
 				<h2>
-					<a href="{{post.source}}">{{post.title}}</a>
+					<a href="#/post/{{post.title}}">{{post.title}}</a>
 				</h2>
 
 				<p>
@@ -34,7 +34,7 @@
 					</span>
 				</p>
 
-				<a class="btn btn-primary pull-right" href="{{post.source}}">
+				<a class="btn btn-primary pull-right" href="#/post/{{post.title}}">
 					Read More <i class="glyphicon glyphicon-chevron-right"></i>
 				</a>
 			</footer>
@@ -46,10 +46,10 @@
 	<!-- Pager -->
 	<ul class="pager">
 		<li class="previous">
-			<a href="#" ng-disabled="currentPage === 0" ng-click="currentPage = currentPage-1">&larr; Older</a>
+			<a href="#/posts/{{currentPage}}" ng-click="prevPage()">&larr; Older</a>
 		</li>
 		<li class="next">
-			<a href="#" ng-disabled="currentPage >= postsData.length/pageSize - 1" ng-click="currentPage = currentPage+1">Newer &rarr;</a>
+			<a href="#/posts/{{currentPage}}" ng-click="nextPage()">Newer &rarr;</a>
 		</li>
 	</ul>
 </section>

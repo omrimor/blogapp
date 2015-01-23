@@ -2,11 +2,12 @@
 	'use strict';
 	var app = angular.module('Blogapp');
 
-	app.controller('NavController', ['$scope', '$location', function($scope, $location){
+	app.controller('NavController', ['$scope', '$location', '$route',
+					function($scope, $location, $route){
 
-		$scope.isActive = function (viewLocation) {
-		        return viewLocation === $location.path();
-		    };
+
+	    $scope.$route = $route;
+
 
 	}]);
 

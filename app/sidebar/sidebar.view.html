@@ -1,4 +1,4 @@
-<aside class="col-md-4">
+<aside class="col-md-4" ng-controller="SideBarCtrl">
 
 	<!-- Blog Search Well -->
 	<div class="well">
@@ -20,52 +20,42 @@
 
 		<div class="list-group">
 			<a href="#" class="list-group-item active">
-				<span class="badge">8</span>
+				<span class="badge">{{postsLen}}</span>
 				Show All Posts
 			</a>
 		</div>
 
 		<h4><small class="glyphicon glyphicon-tag"></small> Category</h4>
 		<div class="list-group">
-			<a href="#" class="list-group-item">
-				<span class="badge">6</span>
-				JavaScript
-			</a>
-			<a href="#" class="list-group-item">
-				<span class="badge">4</span>
-				AngularJS
-			</a>
-			<a href="#" class="list-group-item">
-				<span class="badge">2</span>
-				Grunt
-			</a>
-			<a href="#" class="list-group-item">
-				<span class="badge">2</span>
-				Tools
-			</a>
-			<a href="#" class="list-group-item">
-				<span class="badge">2</span>
-				jQuery
+			<a href="#" class="list-group-item" ng-repeat="item in tagsNameAndNum">
+				<span class="badge">{{item.num}}</span>
+				{{item.name}}
 			</a>
 		</div>
 
 		<h4><small class="glyphicon glyphicon-user"></small> Author</h4>
 		<div class="list-group">
-			<a href="#" class="list-group-item">
-				<span class="badge">4</span>
-				Ilan Cohen
-			</a>
-			<a href="#" class="list-group-item">
-				<span class="badge">2</span>
-				Alex Ilyaev
-			</a>
-			<a href="#" class="list-group-item">
-				<span class="badge">2</span>
-				Amit Choukroun
+			<a href="#" class="list-group-item" ng-repeat="item in authorNameAndNum">
+				<span class="badge">{{item.num}}</span>
+				{{item.name}}
 			</a>
 		</div>
 
 		<h4><small class="glyphicon glyphicon-time"></small> Month</h4>
+		<div class="list-group">
+		<span ng-repeat="item in dateNameAndNum">
+			<span href="#" class="list-group-item disabled">
+				{{item.name | date: 'yyyy'}}
+			</span>
+			<a href="#" class="list-group-item">
+				<span class="badge">{{item.num}}</span>
+				{{item.name | date: 'MMMM'}}
+			</a>
+		</span>
+		</div>
+
+
+<!-- 		<h4><small class="glyphicon glyphicon-time"></small> Month</h4>
 		<div class="list-group">
 			<span href="#" class="list-group-item disabled">
 				2015
@@ -82,5 +72,5 @@
 				December
 			</a>
 		</div>
-	</div>
+ -->	</div>
 </aside>

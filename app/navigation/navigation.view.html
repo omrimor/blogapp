@@ -15,10 +15,10 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li ng-class="{ active: isActive('/posts')}">
+				<li ng-class="{active: $route.current.activetab == 'posts'}">
 					<a href="#/posts">All Posts</a>
 				</li>
-				<li ng-class="{ active: isActive('/admin')}">
+				<li ng-class="{active: $route.current.activetab == 'admin'}">
 					<a href="#/admin">Admin</a>
 				</li>
 			</ul>

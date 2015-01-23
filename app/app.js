@@ -9,15 +9,18 @@
 			})
 			.when('/posts/:page?',{
 				templateUrl: 'app/posts/posts.view.html',
-				controller: 'AllPostsCtrl'
+				controller: 'AllPostsCtrl',
+				activetab: 'posts'
+			})
+			.when('/post/:title?',{
+				templateUrl: 'app/posts/singlePost.view.html',
+				controller: 'SinglePostCtrl',
+				activetab: 'posts'
 			})
 			.when('/admin',{
 				templateUrl: 'app/admin/admin.html',
-				controller: 'LoginCtrl'
-			})
-			.when('/employee/:employeeId',{
-				templateUrl: 'partials/employee.html',
-				controller: 'employeeCtrl'
+				controller: 'LoginCtrl',
+				activetab: 'admin'
 			})
 			.otherwise({
 				redirectTo: '/'
