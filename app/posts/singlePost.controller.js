@@ -21,7 +21,7 @@
 		// console.log($scope.postTitle);
 
 		$scope.getCurrentPage = function(title){
-			return '../data/posts/' + title + '.html';
+			return './data/posts/' + title + '.html';
 
 		};
 
