@@ -32,7 +32,9 @@
 		<div class="row">
 
 			<!-- Blog Entries Column -->
-			<ng-view></ng-view>
+			<section class="col-md-8">
+				<ng-view></ng-view>
+			</section>
 
 			<!-- Blog Sidebar Widgets Column -->
 
@@ -44,7 +46,15 @@
 		<hr>
 
 		<!-- Footer -->
-		<ng-include src="'app/footer/footer.view.html'"></ng-include>
+		<footer>
+			<div class="row">
+				<div class="col-lg-12">
+					<p>Copyright &copy; Netcraft Academy 2015</p>
+				</div>
+				<!-- /.col-lg-12 -->
+			</div>
+			<!-- /.row -->
+		</footer>
 
 	</div>
 
@@ -60,10 +70,18 @@
 
 	<!-- App -->
 	<script src="app/app.js"></script>
+
+	<!-- Posts -->
 	<script src="app/posts/posts.controller.js"></script>
 	<script src="app/posts/singlePost.controller.js"></script>
+
+	<!-- Navigation -->
 	<script src="app/navigation/navigation.controller.js"></script>
+
+	<!-- Sidebar -->
 	<script src="app/sidebar/sidebar.controller.js"></script>
+
+	<!-- Services -->
 	<script src="app/data.service.js"></script>
 
 

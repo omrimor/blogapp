@@ -14,8 +14,7 @@
 			})
 			.when('/post/:title?',{
 				templateUrl: 'app/posts/singlePost.view.html',
-				controller: 'SinglePostCtrl',
-				activetab: 'posts'
+				controller: 'SinglePostCtrl'
 			})
 			.when('/admin',{
 				templateUrl: 'app/admin/admin.html',
