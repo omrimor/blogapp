@@ -23,15 +23,16 @@
 			if (dataObj[id]){
 				return dataObj[id];
 			}
-
 			// Add id as data objects
 			dataObj[id] = {};
 			// Fetch data, now will populate the id object
 			getData(id);
+			console.log('im here ' + dataObj[id]);
 
 			return dataObj[id];
 		};
 
+		// Public API
 		return {
 			get: get
 		};

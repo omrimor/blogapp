@@ -5,8 +5,9 @@
 	app.controller('SideBarCtrl', function($scope, $routeParams, $location, dataService){
 
 		// Get the data from posts.json
-		console.log(dataService.get());
 		$scope.postsData = dataService.get();
+		console.log('SideBarCtrl ' + $scope.postsData);
+
 		$scope.postsLen = $scope.postsData.length;
 
 		var getNameAndNum = function(type){
