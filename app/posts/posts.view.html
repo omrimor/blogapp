@@ -1,7 +1,5 @@
 <h1 class="page-header">All Posts</h1>
 
-{{$scope.test(postsData.data, 'tags')}}
-
 <div ng-repeat="post in postsData.data | startFrom:currentPage*pageSize | limitTo:pageSize">
 
 	<article>

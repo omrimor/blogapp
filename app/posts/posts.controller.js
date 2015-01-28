@@ -11,13 +11,12 @@
 		$scope.postsData = dataService.get();
 		$scope.prettyUrl = utils.prettyUrl;
 
-		$scope.test = utils.getDataByType;
 
 
-		// setTimeout(function () {
-		// 	console.log($scope.test);
-		// 	console.log($scope.postsData.data);
-		// }, 2000);
+		setTimeout(function () {
+			$scope.test = utils.getDataByType($scope.postsData, 'tags');
+			console.log($scope.test);
+		}, 2000);
 
 
 
