@@ -2,58 +2,66 @@
 	'use strict';
 	var app = angular.module('Blogapp');
 
-	app.controller('AllPostsCtrl', function($scope, $routeParams, $location, dataService){
+	app.controller('AllPostsCtrl', function($scope, $routeParams, $location,
+					dataService, utils, byTypeFilter, sortByYearFilter){
 
-		// console.log($routeParams.page);
+		// console.log($routeParams);
 		// console.log($location.search());
 
-		// Get the data from posts.json
-		// dataService
-		// 	.success(function(data, status){
-		// 		$scope.postsData = data.posts;
-		// 	})
-		// 	.error(function(data, status){
-		// 		console.error(status, data);
-		// 	});
-
-
 		$scope.postsData = dataService.get();
-		console.log($scope.postsData);
+		$scope.prettyUrl = utils.prettyUrl;
+
+		$scope.test = utils.getDataByType;
+
 
 		// setTimeout(function () {
-		// 	console.log($scope.postsData);
-		// }, 1000);
+		// 	console.log($scope.test);
+		// 	console.log($scope.postsData.data);
+		// }, 2000);
+
+
 
 		$scope.currentPage = parseInt($routeParams.page, 10) || 0;
 		$scope.pageSize = 3;
 
-		// $scope.total = $scope.postsData.length/$scope.pageSize;
-		// console.log($scope.total);
-		// console.log($scope.currentPage);
+		// $scope.filterBy = function(){
+		// 	var filterObj = {};
+		// 	if($routeParams){
+		// 		for (var prop in $routeParams) {
+		// 			if($routeParams.hasOwnProperty(prop)){
 
-		$scope.replaceStr = function(str){
-			return str.replace(/[^a-zA-Z-]/g, '').replace(/\s+/g, '-');
-		};
+		// 				if(filterObj[prop] === 'category'){
+		// 					filterObj[prop] = 'tags';
+		// 				}
 
-        if ($scope.currentPage === 0){
-    	    // $scope.currentPage = null;
-			console.log('im zero');
-        }
+		// 				// console.log(prop, $routeParams[prop]);
+		// 				if(filterObj[prop] === undefined){
+		// 					filterObj[prop] = $routeParams[prop];
+		// 				}
+		// 			}
+		// 		}
+		// 	}
+		// 	// console.log(filterObj);
+		// 	return filterObj;
+
+		// 	// {author: 'Alex Ilyaev'}
+
+		// };
 
 	});
 
 
 	// StartFrom custom filter
-	// app.filter('startFrom', function() {
-	//     return function(arr, start) {
-	//     	if(arr){
-	// 	    	// console.log('im after ' + arr);
-	// 	        start++;
-	// 	        return arr.slice(start);
-	//     	}
+	app.filter('startFrom', function() {
+	    return function(arr, start) {
+	    	if(arr){
+		    	// console.log('im after ' + arr);
+		        start++;
+		        return arr.slice(start);
+	    	}
 
-	//     };
-	// });
+	    };
+	});
 
 }());
 

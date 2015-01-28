@@ -23,6 +23,7 @@
 </head>
 
 <body ng-app="Blogapp">
+
 	<!-- Navigation -->
 	<ng-include src="'app/navigation/navigation.view.html'"></ng-include>
 
@@ -73,6 +74,12 @@
 
 	<!-- Services -->
 	<script src="app/data.service.js"></script>
+	<script src="app/utils.service.js"></script>
+
+	<!-- Filters -->
+	<script src="app/byType.filter.js"></script>
+	<script src="app/sortByYear.filter.js"></script>
+
 
 	<!-- Posts -->
 	<script src="app/posts/posts.controller.js"></script>

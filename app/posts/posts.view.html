@@ -1,11 +1,13 @@
 <h1 class="page-header">All Posts</h1>
 
-<!-- <div ng-repeat="post in postsData | startFrom:currentPage*pageSize | limitTo:pageSize"> -->
-<div ng-repeat="post in postsData | limitTo:pageSize">
+{{$scope.test(postsData.data, 'tags')}}
+
+<div ng-repeat="post in postsData.data | startFrom:currentPage*pageSize | limitTo:pageSize">
+
 	<article>
 		<header>
 			<h2>
-				<a href="#/post/{{post.title}}">{{post.title}}</a>
+				<a href="#/post/{{prettyUrl(post.title)}}">{{post.title}}</a>
 			</h2>
 
 			<p>
@@ -19,7 +21,7 @@
 		</header>
 		<hr>
 		<figure>
-			<img class="img-responsive" src="{{post.image}}" alt="">
+			<img class="img-responsive" ng-src="{{post.image}}" alt="">
 		</figure>
 		<hr>
 
@@ -42,13 +44,14 @@
 	<hr>
 </div>
 
-
 <!-- Pager -->
 <ul class="pager">
 	<li class="previous">
-		<a href="#/posts/{{currentPage - 1}}" ng-hide="{{currentPage <= 0}}">&larr; Older</a>
+	{{currentPage == 0}}
+		<a href="#/posts/{{currentPage == 0 ? '' : currentPage - 1}}" ng-hide="currentPage == 0">&larr; Older</a>
 	</li>
+
 	<li class="next">
-		<a href="#/posts/{{currentPage + 1}}" ng-hide="{{currentPage === 2}}">Newer &rarr;</a>
+		<a href="#/posts/{{currentPage + 1}}" ng-hide="{{currentPage == 2}}">Newer &rarr;</a>
 	</li>
 </ul>
