@@ -27,11 +27,11 @@
 		<h4><small class="glyphicon glyphicon-tag"></small> Category</h4>
 		<div class="list-group">
 			<!-- <a href="#/posts/?category={{prettyUrlToLower(item.name)}}" -->
-			<a href="#/posts/?category=item.name}}"
-				class="list-group-item" ng-repeat="item in postsData.data">
+			<a href="#/posts/?category=tag.name}}"
+				class="list-group-item" ng-repeat="tag in tags">
 				<!-- class="list-group-item" ng-repeat="item in postsData.data | byType:'tags'"> -->
-				<span class="badge">{{item.num}}</span>
-				{{item.name}}
+				<span class="badge">{{tag.num}}</span>
+				{{tag.name}}
 			</a>
 		</div>
 

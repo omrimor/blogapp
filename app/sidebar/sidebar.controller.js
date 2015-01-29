@@ -6,10 +6,18 @@
                     dataService, utils, byTypeFilter, sortByYearFilter){
 
         // Get the data from posts.json
-        $scope.postsData = dataService.get();
+        $scope.postsData = dataService.get(undefined, function(){
+            $scope.tags = utils.getDataByType($scope.postsData, 'tags');
+        });
 
         $scope.postsLen = $scope.postsData.length;
         $scope.prettyUrlToLower = utils.prettyUrlToLower;
+
+        setTimeout(function () {
+            // $scope.tags = utils.getDataByType($scope.postsData, 'tags');
+            console.log($scope.tags);
+        }, 2000);
+
 
 
 

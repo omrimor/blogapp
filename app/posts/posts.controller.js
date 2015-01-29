@@ -13,10 +13,6 @@
 
 
 
-		setTimeout(function () {
-			$scope.test = utils.getDataByType($scope.postsData, 'tags');
-			console.log($scope.test);
-		}, 2000);
 
 
 

@@ -14,6 +14,15 @@
 		};
 
 		var getDataByType = function(dataObj, type){
+			// var originalArr;
+
+			// if(dataObj.data === undefined){
+			// 	dataObj.data = [];
+			// }
+			// else {
+			// 	dataObj.data = originalArr;
+			// }
+
 			var originalArr = dataObj.data;
 			// Create a new Array & new Object to hold
 			var result = [],
