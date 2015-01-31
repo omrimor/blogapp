@@ -1,6 +1,7 @@
 <h1 class="page-header">All Posts</h1>
 
-<div ng-repeat="post in postsData.data | startFrom:currentPage*pageSize | limitTo:pageSize">
+<div ng-repeat="post in postsData.data | filter: filterBy | startFrom:currentPage*pageSize | limitTo:pageSize
+">
 
 	<article>
 		<header>
@@ -30,7 +31,7 @@
 			<p class="pull-left">
 				<b>Tags:&nbsp;</b>
 				<span ng-repeat="tag in post.tags">
-					<a href="#" class="label label-default">{{tag}}</a>
+					<a href="#/posts/?category={{prettyUrlToLower(tag)}}" class="label label-default">{{tag}}</a>
 				</span>
 			</p>
 
@@ -45,7 +46,7 @@
 <!-- Pager -->
 <ul class="pager">
 	<li class="previous">
-	{{currentPage == 0}}
+	<!-- {{currentPage == 0}} -->
 		<a href="#/posts/{{currentPage == 0 ? '' : currentPage - 1}}" ng-hide="currentPage == 0">&larr; Older</a>
 	</li>
 

@@ -18,7 +18,8 @@
 		<h3>Filter Posts</h3>
 
 		<div class="list-group">
-			<a href="#" class="list-group-item active">
+			<a href="#/posts" class="list-group-item"
+			ng-class="isActive('posts')">
 				<span class="badge">{{postsData.data.length}}</span>
 				Show All Posts
 			</a>
@@ -26,10 +27,9 @@
 
 		<h4><small class="glyphicon glyphicon-tag"></small> Category</h4>
 		<div class="list-group">
-			<!-- <a href="#/posts/?category={{prettyUrlToLower(item.name)}}" -->
-			<a href="#/posts/?category=tag.name}}"
-				class="list-group-item" ng-repeat="tag in tags">
-				<!-- class="list-group-item" ng-repeat="item in postsData.data | byType:'tags'"> -->
+			<a href="#/posts/?category={{prettyUrlToLower(tag.name)}}"
+				class="list-group-item" ng-repeat="tag in tags"
+				ng-class="isActive(tag.name)">
 				<span class="badge">{{tag.num}}</span>
 				{{tag.name}}
 			</a>
@@ -37,24 +37,23 @@
 
 		<h4><small class="glyphicon glyphicon-user"></small> Author</h4>
 		<div class="list-group">
-			<!-- <a href="#/posts/?author={{prettyUrlToLower(item.name)}}" -->
-			<a href="#/posts/?author={{item.name}}"
-			class="list-group-item" ng-repeat="item in postsData.data">
-			<!-- class="list-group-item" ng-repeat="item in postsData.data | byType:'author'"> -->
-				<span class="badge">{{item.num}}</span>
-				{{item.name}}
+			<a href="#/posts/?author={{prettyUrlToLower(author.name)}}"
+			class="list-group-item" ng-repeat="author in authors"
+			ng-class="isActive(author.name)">
+				<span class="badge">{{author.num}}</span>
+				{{author.name}}
 			</a>
 		</div>
 
 		<h4><small class="glyphicon glyphicon-time"></small> Month</h4>
 		<div class="list-group">
-		<span ng-repeat="item in postsData.data">
-		<!-- <span ng-repeat="item in postsData.data | byType:'date' | sortByYear"> -->
+		<span ng-repeat="item in orderDates">
 			<span class="list-group-item disabled">
 				{{item.name}}
 			</span>
-			<a ng-href="#/posts/?month={{item.month.name + '-' + item.name}}"
-			class="list-group-item">
+			<a ng-href="#/posts/?month={{prettyUrlToLower(item.month.name + '-' + item.name)}}"
+			class="list-group-item"
+			ng-class="isActive(item.month.name)">
 				<span class="badge">{{item.month.value}}</span>
 				{{item.month.name}}
 			</a>

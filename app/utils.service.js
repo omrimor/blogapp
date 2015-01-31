@@ -10,19 +10,9 @@
 
 		var prettyUrlToLower = function(str){
 			return prettyUrl(str).toLowerCase();
-
 		};
 
 		var getDataByType = function(dataObj, type){
-			// var originalArr;
-
-			// if(dataObj.data === undefined){
-			// 	dataObj.data = [];
-			// }
-			// else {
-			// 	dataObj.data = originalArr;
-			// }
-
 			var originalArr = dataObj.data;
 			// Create a new Array & new Object to hold
 			var result = [],
@@ -53,23 +43,66 @@
 			        }
 			    }
 			}
-
 			// Populate the result array
 			for(var prop in obj){
 			  if(obj.hasOwnProperty(prop)){
 			    result.push({name: prop, num: obj[prop]});
 			  }
 			}
-			console.log(result);
+			// console.log(result);
 			return result;
 		};
 
+		var getDataByYear = function (datesArr) {
+			// Create a new Array & 2 new Object to hold
+			var result = [],
+			    yearObj = {},
+			    monthObj = {};
+
+			// loop through given Array
+			for (var i = 0; i < datesArr.length; i++) {
+			  var item = datesArr[i],
+			      date = new Date(parseInt(item.name, 10)),
+			      month = date.getMonth(),
+			      year = date.getFullYear(),
+			      monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+			                       'July', 'August', 'September', 'October', 'November', 'December' ];
+
+			    // If the object does'nt exist - create it
+			   if(yearObj[year] === undefined){
+			        yearObj[year] = {};
+			    }
+			    // If the second object does'nt exist - create it and set it's value to one
+			    if(yearObj[year][monthNames[month]] === undefined){
+			        yearObj[year][monthNames[month]] = 1;
+			    }
+			    // Increment the value
+			    else {
+			        yearObj[year][monthNames[month]]++;
+			    }
+			}
+			// Populate the result array
+			for(var prop in yearObj){
+			  if(yearObj.hasOwnProperty(prop)){
+
+			    for(var monthItem in yearObj[prop]){
+			        if(yearObj[prop].hasOwnProperty(monthItem)){
+			           monthObj = {name: monthItem, value: yearObj[prop][monthItem]};
+			        }
+			    }
+			    result.push({name: prop, month: monthObj});
+			  }
+			}
+			// console.log(result);
+			return result;
+		};
 
 		// Public API
 		return {
 			prettyUrl: prettyUrl,
 			prettyUrlToLower: prettyUrlToLower,
-			getDataByType: getDataByType
+			getDataByType: getDataByType,
+			getDataByYear: getDataByYear
 		};
 	});
 

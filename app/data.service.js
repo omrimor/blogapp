@@ -5,7 +5,8 @@
 	app.factory('dataService', function($http, utils){
 		var dataObj = {};
 
-		// Get data and populate to an object by id
+		// Get data and populate to an object by id,
+		// Optional callback
 		var getData = function(id, callback){
 			$http.get('data/posts.json')
 				.success(function(data, status){
@@ -25,7 +26,6 @@
 					if(callback){
 						callback();
 					}
-					console.log(callback);
 				})
 				.error(function(data, status){
 					console.error(status, data);
@@ -36,7 +36,6 @@
 			if(typeof id === 'undefined'){
 				id = 'all';
 			}
-			// console.log(id);
 
 			// Return previous fetched data
 			if (dataObj[id]){
@@ -45,6 +44,7 @@
 			// Add id as data objects
 			dataObj[id] = {};
 			// Fetch data, now will populate the id object
+			// and pass the optional callback
 			getData(id, callback);
 			return dataObj[id];
 		};
