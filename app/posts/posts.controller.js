@@ -4,7 +4,7 @@
 	var app = angular.module('Blogapp');
 
 	app.controller('AllPostsCtrl', function($scope, $routeParams, $location,
-					dataService, utils, byTypeFilter, sortByYearFilter){
+					dataService, utils){
 
 		// console.log($routeParams);
 		// console.log($location.search());
@@ -16,6 +16,13 @@
 		$scope.currentPage = parseInt($routeParams.page, 10) || 0;
 		$scope.pageSize = 3;
 		$scope.home = $location.path().substring(1);
+		$scope.searchVal = $routeParams.search;
+
+
+		// Handle '0' num is url when paging back to first page
+		if($routeParams.page === '0'){
+			$location.path('/posts');
+		}
 
 		// Handle filtering the data array based on url params
 		$scope.filterBy = function(arr, inx){
@@ -49,6 +56,24 @@
 								}
 							}
 						}
+
+						// if(prop === 'search'){
+						// 	// console.log(arr);
+						// 	for (var item in arr) {
+						// 		if (arr.hasOwnProperty(item)) {
+						// 			var content = arr[item];
+
+						// 			if(item === 'title' || item === 'author' || item === 'description'){
+						// 				var cleanContent = $scope.prettyUrlToLower(content);
+						// 				if(cleanContent.indexOf(filterObj[prop]) > -1){
+						// 					console.log('found match', content);
+						// 					console.log(arr, inx);
+						// 				}
+						// 			}
+
+						// 		}
+						// 	}
+						// }
 
 						// If author
 						if(prop === 'author'){

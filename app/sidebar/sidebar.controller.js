@@ -17,6 +17,13 @@
         $scope.postsLen = $scope.postsData.length;
         $scope.prettyUrlToLower = utils.prettyUrlToLower;
 
+        $scope.submitSearch = function() {
+              $scope.submitValue = $scope.search;
+              // console.log($scope.submitValue);
+              $location.path('/posts').search('search', $scope.submitValue);
+          };
+
+
         // Handle adding active class to current selected
         $scope.isActive = function(name){
             $scope.currentPath = $location.path().substring(1);

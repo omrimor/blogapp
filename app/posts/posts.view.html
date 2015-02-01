@@ -1,17 +1,15 @@
 <h1 class="page-header">All Posts</h1>
 
-<div ng-repeat="post in postsData.data | filter: filterBy | startFrom:currentPage*pageSize | limitTo:pageSize
-">
-
+<div ng-repeat="post in postsData.data | filter: filterBy |
+				startFrom:currentPage*pageSize | limitTo:pageSize">
 	<article>
 		<header>
 			<h2>
 				<a href="#/post/{{prettyUrl(post.title)}}">{{post.title}}</a>
 			</h2>
-
 			<p>
 				<small class="glyphicon glyphicon-user"></small>
-				by <a href="#">{{post.author}}</a>
+				by <a href="#/posts/?author={{prettyUrlToLower(post.author)}}">{{post.author}}</a>
 			</p>
 			<p>
 				<small class="glyphicon glyphicon-time"></small>
@@ -47,7 +45,7 @@
 <ul class="pager">
 	<li class="previous">
 	<!-- {{currentPage == 0}} -->
-		<a href="#/posts/{{currentPage == 0 ? '' : currentPage - 1}}" ng-hide="currentPage == 0">&larr; Older</a>
+		<a href="#/posts/{{currentPage - 1}}" ng-hide="currentPage == 0">&larr; Older</a>
 	</li>
 
 	<li class="next">
