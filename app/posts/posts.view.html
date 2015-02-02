@@ -1,7 +1,7 @@
 <h1 class="page-header">All Posts</h1>
 
-<div ng-repeat="post in postsData.data | filter: filterBy |
-				startFrom:currentPage*pageSize | limitTo:pageSize">
+<div ng-repeat="post in postsData.data | filter: filterBy
+				| startFrom:currentPage*pageSize | limitTo:pageSize">
 	<article>
 		<header>
 			<h2>

@@ -29,7 +29,7 @@
 			var filterObj = {},
 				isFilter = false;
 
-			// Default - if no params passed
+			// Default - if no params passed in url
 			if($scope.home === 'posts' || $scope.home === 'posts/' + $scope.currentPage){
 				isFilter = true;
 			}
@@ -51,35 +51,48 @@
 								if(filterObj[prop] === $scope.prettyUrlToLower(itemTags)){
 									filterObj.tags = itemTags;
 									delete filterObj.category;
-									// console.log(filterObj);
 									isFilter = true;
 								}
 							}
 						}
 
-						// if(prop === 'search'){
-						// 	// console.log(arr);
-						// 	for (var item in arr) {
-						// 		if (arr.hasOwnProperty(item)) {
-						// 			var content = arr[item];
+						if(prop === 'search'){
+							for (var item in arr) {
+								if (arr.hasOwnProperty(item)) {
+									var content = arr[item];
 
-						// 			if(item === 'title' || item === 'author' || item === 'description'){
-						// 				var cleanContent = $scope.prettyUrlToLower(content);
-						// 				if(cleanContent.indexOf(filterObj[prop]) > -1){
-						// 					console.log('found match', content);
-						// 					console.log(arr, inx);
-						// 				}
-						// 			}
+									if(item === 'title' || item === 'author' || item === 'description'){
+										var cleanContent = $scope.prettyUrlToLower(content);
+										if(cleanContent.indexOf(filterObj[prop]) > -1){
 
-						// 		}
-						// 	}
-						// }
+											// console.log('im from url ',$scope.searchVal);
+
+											// arr[prop] = content;
+											// filterObj[prop] = cleanContent;
+											// filterObj[prop] = arr[prop];
+
+											arr[prop] = arr[item];
+
+											console.log('filterObj[prop] is ', filterObj[prop]);
+											console.log('found match', content);
+											console.log('arr[prop] is ', arr[prop]);
+											console.log('arr[item] is ', arr[item]);
+											console.log('arr is ', arr);
+											isFilter = true;
+										}
+									}
+
+								}
+							}
+						}
 
 						// If author
 						if(prop === 'author'){
 							if(filterObj[prop] === $scope.prettyUrlToLower(arr[prop])){
 								filterObj[prop] = arr[prop];
-								// console.log(filterObj);
+								console.log('im author arr ', arr);
+								console.log('im arr[prop]', arr[prop]);
+								console.log('im filterObj ', filterObj);
 								isFilter = true;
 							}
 						}

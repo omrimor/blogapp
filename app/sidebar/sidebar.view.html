@@ -28,7 +28,7 @@
 		<h4><small class="glyphicon glyphicon-tag"></small> Category</h4>
 		<div class="list-group">
 			<a href="#/posts/?category={{prettyUrlToLower(tag.name)}}"
-				class="list-group-item" ng-repeat="tag in tags"
+				class="list-group-item" ng-repeat="tag in tags | orderBy:'name'"
 				ng-class="isActive(tag.name)">
 				<span class="badge">{{tag.num}}</span>
 				{{tag.name}}
@@ -38,7 +38,7 @@
 		<h4><small class="glyphicon glyphicon-user"></small> Author</h4>
 		<div class="list-group">
 			<a href="#/posts/?author={{prettyUrlToLower(author.name)}}"
-			class="list-group-item" ng-repeat="author in authors"
+			class="list-group-item" ng-repeat="author in authors | orderBy:'name'"
 			ng-class="isActive(author.name)">
 				<span class="badge">{{author.num}}</span>
 				{{author.name}}
@@ -47,7 +47,7 @@
 
 		<h4><small class="glyphicon glyphicon-time"></small> Month</h4>
 		<div class="list-group">
-		<span ng-repeat="item in orderDates">
+		<span ng-repeat="item in orderDates | orderBy:'name'">
 			<span class="list-group-item disabled">
 				{{item.name}}
 			</span>
