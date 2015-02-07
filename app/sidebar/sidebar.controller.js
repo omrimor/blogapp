@@ -7,19 +7,22 @@
 
         // Get the data from posts.json, pass a callback function to get
         // the custom arrays for the sidebar
-        $scope.postsData = dataService.get(undefined, function(){
-            $scope.tags = utils.getDataByType($scope.postsData, 'tags');
-            $scope.authors = utils.getDataByType($scope.postsData, 'author');
-            $scope.dates = utils.getDataByType($scope.postsData, 'date');
+
+        $scope.posts = dataService.get().then(function (data) {
+            $scope.posts = data.data.posts;
+            $scope.tags = utils.getDataByType($scope.posts, 'tags');
+            $scope.authors = utils.getDataByType($scope.posts, 'author');
+            $scope.dates = utils.getDataByType($scope.posts, 'date');
             $scope.orderDates = utils.getDataByYear($scope.dates);
         });
 
-        $scope.postsLen = $scope.postsData.length;
+        $scope.postsLen = $scope.posts.length;
         $scope.prettyUrlToLower = utils.prettyUrlToLower;
+
 
         $scope.submitSearch = function() {
               $scope.submitValue = $scope.search;
-              // console.log($scope.submitValue);
+              $location.search('');
               $location.path('/posts').search('search', $scope.submitValue);
           };
 

@@ -12,8 +12,15 @@
 			return prettyUrl(str).toLowerCase();
 		};
 
-		var getDataByType = function(dataObj, type){
-			var originalArr = dataObj.data;
+		// var chunk = function(arr, size) {
+		//   var newArr = [];
+		//   for (var i=0; i<arr.length; i+=size) {
+		//     newArr.push(arr.slice(i, i+size));
+		//   }
+		//   return newArr;
+		// };
+
+		var getDataByType = function(originalArr, type){
 			// Create a new Array & new Object to hold
 			var result = [],
 			    obj = {};
@@ -49,7 +56,7 @@
 			    result.push({name: prop, num: obj[prop]});
 			  }
 			}
-			// console.log(result);
+
 			return result;
 		};
 
@@ -93,7 +100,7 @@
 			    result.push({name: prop, month: monthObj});
 			  }
 			}
-			// console.log(result);
+
 			return result;
 		};
 

@@ -1,19 +1,19 @@
 <!-- Begin Post -->
 <article>
 	<header>
-		<h1 class="page-header">{{singlePostData.data.title}}</h1>
+		<h1 class="page-header">{{post.title}}</h1>
 
 		<p>
 			<small class="glyphicon glyphicon-user"></small>
-			by <a href="#">{{singlePostData.data.author}}</a>
+			by <a href="#">{{post.author}}</a>
 		</p>
 		<p>
 			<small class="glyphicon glyphicon-time"></small>
-			{{singlePostData.data.title | date: mediumDate}}
+			{{post.title | date: mediumDate}}
 		</p>
 		<p>
 			<b>Tags:&nbsp;</b>
-			<span ng-repeat="tag in singlePostData.data.tags">
+			<span ng-repeat="tag in post.tags">
 				<a href="#" class="label label-default">{{tag}}</a>
 			</span>
 		</p>
@@ -21,11 +21,11 @@
 	<hr>
 
 	<figure>
-		<img class="img-responsive" ng-src="{{singlePostData.data.image}}"
+		<img class="img-responsive" ng-src="{{post.image}}"
 			alt="">
 	</figure>
 	<hr>
-	<div ng-include src="'./' + singlePostData.data.source"></div>
+	<div ng-include src="'./' + post.source"></div>
 </article>
 <hr>
 <!-- End of Post -->

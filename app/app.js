@@ -7,7 +7,7 @@
 			.when('/',{
 				redirectTo: '/posts'
 			})
-			.when('/posts/:page?/:filter?',{
+			.when('/posts/:page?',{
 				templateUrl: 'app/posts/posts.view.html',
 				controller: 'AllPostsCtrl',
 				activetab: 'posts'

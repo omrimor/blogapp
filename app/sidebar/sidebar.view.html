@@ -2,15 +2,14 @@
 	<!-- Blog Search Well -->
 	<div class="well">
 		<h4>Search</h4>
-		<div class="input-group">
+		<form ng-submit="submitSearch()" class="input-group">
 			<input type="text" class="form-control" ng-model="search">
 			<span class="input-group-btn">
-				<button class="btn btn-default" type="button"
-				ng-click="submitSearch()">
+				<button class="btn btn-default" type="submit">
 					<span class="glyphicon glyphicon-search"></span>
 			</button>
 			</span>
-		</div>
+		</form>
 		<!-- /.input-group -->
 	</div>
 	<!-- Blog Categories Well -->
@@ -20,7 +19,7 @@
 		<div class="list-group">
 			<a href="#/posts" class="list-group-item"
 			ng-class="isActive('posts')">
-				<span class="badge">{{postsData.data.length}}</span>
+				<span class="badge">{{posts.length}}</span>
 				Show All Posts
 			</a>
 		</div>
@@ -47,7 +46,7 @@
 
 		<h4><small class="glyphicon glyphicon-time"></small> Month</h4>
 		<div class="list-group">
-		<span ng-repeat="item in orderDates | orderBy:'name'">
+		<span ng-repeat="item in orderDates | orderBy:'-name'">
 			<span class="list-group-item disabled">
 				{{item.name}}
 			</span>

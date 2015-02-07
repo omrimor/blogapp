@@ -2,58 +2,43 @@
 	'use strict';
 	var app = angular.module('Blogapp');
 
-	app.factory('dataService', function($http, utils){
-		var dataObj = {};
+	app.factory('dataService', function($http, $q, utils){
 
-		// Get data and populate to an object by id,
-		// Optional callback
-		var getData = function(id, callback){
-			$http.get('data/posts.json')
-				.success(function(data, status){
+		// Get data using http and store in var
+		var promise = $http.get('data/posts.json')
+		    .error(function (data, status) {
+		        console.error(status, data);
+		    });
 
-					if(id !== 'all'){
-						id = utils.prettyUrl(id);
-
-						data.posts.filter(function(post, inx){
-							if(utils.prettyUrl(post.title) === id){
-								dataObj[id].data = data.posts[inx];
-							}
-						});
-						return;
-					}
-					dataObj[id].data = data.posts;
-
-					if(callback){
-						callback();
-					}
-				})
-				.error(function(data, status){
-					console.error(status, data);
-				});
-		};
-
-		var get = function(id, callback){
-			if(typeof id === 'undefined'){
-				id = 'all';
-			}
-
-			// Return previous fetched data
-			if (dataObj[id]){
-				return dataObj[id];
-			}
-			// Add id as data objects
-			dataObj[id] = {};
-			// Fetch data, now will populate the id object
-			// and pass the optional callback
-			getData(id, callback);
-			return dataObj[id];
-		};
-
-
-		// Public API
 		return {
-			get: get
+			 get: function(id){
+			 	if(id){
+			 		return this.getById(id);
+			 	}
+		        return promise;
+			 },
+
+			 getById: function(id){
+			 	var defer = $q.defer();
+
+			 	// Varify the data is ready
+			 	promise.then(function(data){
+			 		var prettyId;
+			 		prettyId = utils.prettyUrl(id);
+
+			 		// Filter the data and get only requested post
+			 		$.each(data.data.posts, function(inx, post){
+			 			if(utils.prettyUrl(post.title) === prettyId){
+			 				defer.resolve(post);
+			 				return false;
+			 			}
+			 		});
+			 	});
+
+			 	return defer.promise;
+			 }
 		};
+
 	});
 
 }());
