@@ -2,8 +2,8 @@
 	<!-- Blog Search Well -->
 	<div class="well">
 		<h4>Search</h4>
-		<form ng-submit="submitSearch()" class="input-group">
-			<input type="text" class="form-control" ng-model="search">
+		<form ng-submit="search(searchText)" class="input-group">
+			<input type="text" class="form-control" ng-model="searchText">
 			<span class="input-group-btn">
 				<button class="btn btn-default" type="submit">
 					<span class="glyphicon glyphicon-search"></span>
@@ -15,10 +15,9 @@
 	<!-- Blog Categories Well -->
 	<div class="well">
 		<h3>Filter Posts</h3>
-
 		<div class="list-group">
-			<a href="#/posts" class="list-group-item"
-			ng-class="isActive('posts')">
+			<a ng-href="#/{{currentPath}}" class="list-group-item"
+			ng-class="isActive(currentPath)">
 				<span class="badge">{{posts.length}}</span>
 				Show All Posts
 			</a>
@@ -26,7 +25,7 @@
 
 		<h4><small class="glyphicon glyphicon-tag"></small> Category</h4>
 		<div class="list-group">
-			<a href="#/posts/?category={{prettyUrlToLower(tag.name)}}"
+			<a ng-href="#/{{currentPath}}?category={{prettyUrlToLower(tag.name)}}"
 				class="list-group-item" ng-repeat="tag in tags | orderBy:'name'"
 				ng-class="isActive(tag.name)">
 				<span class="badge">{{tag.num}}</span>
@@ -36,7 +35,7 @@
 
 		<h4><small class="glyphicon glyphicon-user"></small> Author</h4>
 		<div class="list-group">
-			<a href="#/posts/?author={{prettyUrlToLower(author.name)}}"
+			<a ng-href="#/{{currentPath}}?author={{prettyUrlToLower(author.name)}}"
 			class="list-group-item" ng-repeat="author in authors | orderBy:'name'"
 			ng-class="isActive(author.name)">
 				<span class="badge">{{author.num}}</span>
@@ -50,7 +49,7 @@
 			<span class="list-group-item disabled">
 				{{item.name}}
 			</span>
-			<a ng-href="#/posts/?month={{prettyUrlToLower(item.month.name + '-' + item.name)}}"
+			<a ng-href="#/{{currentPath}}?month={{prettyUrlToLower(item.month.name + '-' + item.name)}}"
 			class="list-group-item"
 			ng-class="isActive(item.month.name)">
 				<span class="badge">{{item.month.value}}</span>

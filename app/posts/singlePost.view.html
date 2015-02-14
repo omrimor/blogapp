@@ -1,76 +1,72 @@
-<!-- Begin Post -->
-<article>
-	<header>
-		<h1 class="page-header">{{post.title}}</h1>
+<section class="col-md-8">
+	<!-- Begin Post -->
+	<article>
+		<header>
+			<h1 class="page-header">{{post.title}}</h1>
 
-		<p>
-			<small class="glyphicon glyphicon-user"></small>
-			by <a href="#">{{post.author}}</a>
-		</p>
-		<p>
-			<small class="glyphicon glyphicon-time"></small>
-			{{post.title | date: mediumDate}}
-		</p>
-		<p>
-			<b>Tags:&nbsp;</b>
-			<span ng-repeat="tag in post.tags">
-				<a href="#" class="label label-default">{{tag}}</a>
-			</span>
-		</p>
-	</header>
+			<p>
+				<small class="glyphicon glyphicon-user"></small>
+				by <a href="#">{{post.author}}</a>
+			</p>
+			<p>
+				<small class="glyphicon glyphicon-time"></small>
+				{{post.title | date: mediumDate}}
+			</p>
+			<p>
+				<b>Tags:&nbsp;</b>
+				<span ng-repeat="tag in post.tags">
+					<a href="#" class="label label-default">{{tag}}</a>
+				</span>
+			</p>
+		</header>
+		<hr>
+		<div ng-bind-html="postHtml"></div>
+	</article>
+	<hr>
+	<!-- End of Post -->
+
+	<!-- Blog Comments -->
+
+	<!-- Comments Form -->
+	<div class="well">
+		<h4>Leave a Comment:</h4>
+		<form role="form">
+			<div class="form-group">
+				<textarea class="form-control" rows="3"></textarea>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+
 	<hr>
 
-	<figure>
-		<img class="img-responsive" ng-src="{{post.image}}"
-			alt="">
-	</figure>
-	<hr>
-	<div ng-include src="'./' + post.source"></div>
-</article>
-<hr>
-<!-- End of Post -->
+	<!-- Posted Comments -->
 
-<!-- Blog Comments -->
-
-<!-- Comments Form -->
-<div class="well">
-	<h4>Leave a Comment:</h4>
-	<form role="form">
-		<div class="form-group">
-			<textarea class="form-control" rows="3"></textarea>
+	<!-- Comment -->
+	<div class="media">
+		<a class="pull-left" href="#">
+			<img class="media-object" src="http://placehold.it/64x64" alt="">
+		</a>
+		<div class="media-body">
+			<h4 class="media-heading">Some User
+				<small>14 Jan, 2015</small>
+			</h4>
+			<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
-	</form>
-</div>
-
-<hr>
-
-<!-- Posted Comments -->
-
-<!-- Comment -->
-<div class="media">
-	<a class="pull-left" href="#">
-		<img class="media-object" src="http://placehold.it/64x64" alt="">
-	</a>
-	<div class="media-body">
-		<h4 class="media-heading">Some User
-			<small>14 Jan, 2015</small>
-		</h4>
-		<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
 	</div>
-</div>
-<hr>
+	<hr>
 
-<!-- Comment -->
-<div class="media">
-	<a class="pull-left" href="#">
-		<img class="media-object" src="http://placehold.it/64x64" alt="">
-	</a>
-	<div class="media-body">
-		<h4 class="media-heading">Some User
-			<small>14 Jan, 2015</small>
-		</h4>
-		<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+	<!-- Comment -->
+	<div class="media">
+		<a class="pull-left" href="#">
+			<img class="media-object" src="http://placehold.it/64x64" alt="">
+		</a>
+		<div class="media-body">
+			<h4 class="media-heading">Some User
+				<small>14 Jan, 2015</small>
+			</h4>
+			<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+		</div>
 	</div>
-</div>
+</section>
 

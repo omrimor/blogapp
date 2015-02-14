@@ -1,6 +1,6 @@
 (function () {
 	'use strict';
-	var app = angular.module('Blogapp', ['ngRoute']);
+	var app = angular.module('Blogapp', ['ngRoute', 'ngSanitize']);
 
 	app.config(['$routeProvider', function($routeProvider){
 		$routeProvider
@@ -9,16 +9,17 @@
 			})
 			.when('/posts/:page?',{
 				templateUrl: 'app/posts/posts.view.html',
-				controller: 'AllPostsCtrl',
+				controller: 'PostsCtrl',
 				activetab: 'posts'
 			})
 			.when('/post/:title?',{
 				templateUrl: 'app/posts/singlePost.view.html',
-				controller: 'SinglePostCtrl'
+				controller: 'SinglePostCtrl',
+				activetab: 'posts'
 			})
 			.when('/admin',{
-				templateUrl: 'app/admin/admin.html',
-				controller: 'LoginCtrl',
+				templateUrl: 'app/admin/admin.view.html',
+				controller: 'AdminCtrl',
 				activetab: 'admin'
 			})
 			.otherwise({

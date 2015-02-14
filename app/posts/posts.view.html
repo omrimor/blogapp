@@ -1,58 +1,55 @@
-<h1 class="page-header">All Posts</h1>
-{{chunkedData}}
+<section class="col-md-8">
+	<h1 class="page-header">
+		Showing {{posts.length}} Posts
+	</h1>
 
-<div ng-repeat="post in posts
-				| filterBy
-				| filter: searchVal
-				">
-				<!-- | startFrom:currentPage*pageSize | limitTo:pageSize -->
-	<article>
-		<header>
-			<h2>
-				<a href="#/post/{{prettyUrl(post.title)}}">{{post.title}}</a>
-			</h2>
-			<p>
-				<small class="glyphicon glyphicon-user"></small>
-				by <a href="#/posts/?author={{prettyUrlToLower(post.author)}}">{{post.author}}</a>
-			</p>
-			<p>
-				<small class="glyphicon glyphicon-time"></small>
-				Posted on {{post.date | date: mediumDate}}
-			</p>
-		</header>
+	<div ng-repeat="post in posts
+					| postsLimit:limit:currentPage
+					">
+		<article>
+			<header>
+				<h2>
+					<a ng-href="#/post/{{prettyUrl(post.title)}}">{{post.title}}</a>
+				</h2>
+				<p>
+					<small class="glyphicon glyphicon-user"></small>
+					by <a ng-href="#/posts/?author={{prettyUrlToLower(post.author)}}">{{post.author}}</a>
+				</p>
+				<p>
+					<small class="glyphicon glyphicon-time"></small>
+					Posted on {{post.date | date: mediumDate}}
+				</p>
+			</header>
+			<hr>
+			<!-- Post Description -->
+			<p>{{post.description}}</p>
+			<br>
+			<footer class="clearfix">
+				<p class="pull-left">
+					<b>Tags:&nbsp;</b>
+					<span ng-repeat="tag in post.tags">
+						<a ng-href="#/posts/?category={{prettyUrlToLower(tag)}}" class="label label-default">{{tag}}</a>
+					</span>
+				</p>
+
+				<a class="btn btn-primary pull-right" ng-href="#/post/{{post.title}}">
+					Read More <i class="glyphicon glyphicon-chevron-right"></i>
+				</a>
+			</footer>
+		</article>
 		<hr>
-		<figure>
-			<img class="img-responsive" ng-src="{{post.image}}" alt="">
-		</figure>
-		<hr>
+	</div>
 
-		<!-- Post Description -->
-		<p>{{post.description}}</p>
-		<br>
-		<footer class="clearfix">
-			<p class="pull-left">
-				<b>Tags:&nbsp;</b>
-				<span ng-repeat="tag in post.tags">
-					<a href="#/posts/?category={{prettyUrlToLower(tag)}}" class="label label-default">{{tag}}</a>
-				</span>
-			</p>
+	<!-- Pager -->
+	<span ng-show="posts.length > limit">
+	<ul class="pager">
+		<li class="previous" ng-hide="currentPage == limit">
+			<a ng-href="#/posts/{{currentPage + 1}}{{getParams(qParams)}}">&larr; Older</a>
+		</li>
 
-			<a class="btn btn-primary pull-right" href="#/post/{{post.title}}">
-				Read More <i class="glyphicon glyphicon-chevron-right"></i>
-			</a>
-		</footer>
-	</article>
-	<hr>
-</div>
-
-<!-- Pager -->
-<ul class="pager">
-	<li class="previous">
-	<!-- {{currentPage == 0}} -->
-		<a href="#/posts/{{currentPage - 1}}" ng-hide="currentPage == 0">&larr; Older</a>
-	</li>
-
-	<li class="next">
-		<a href="#/posts/{{currentPage + 1}}" ng-hide="{{currentPage == 2}}">Newer &rarr;</a>
-	</li>
-</ul>
+		<li class="next" ng-hide="{{currentPage == 1}}">
+			<a ng-href="#/posts/{{currentPage - 1}}{{getParams(qParams)}}">Newer &rarr;</a>
+		</li>
+	</ul>
+	</span>
+</section>

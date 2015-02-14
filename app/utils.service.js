@@ -5,20 +5,13 @@
 	app.factory('utils', function(){
 
 		var prettyUrl = function(str){
-			return str.replace(/[\. ,:-]+/g, '-');
+			var re = /[\. ,:-]+/g;
+			return str.replace(re, '-');
 		};
 
 		var prettyUrlToLower = function(str){
 			return prettyUrl(str).toLowerCase();
 		};
-
-		// var chunk = function(arr, size) {
-		//   var newArr = [];
-		//   for (var i=0; i<arr.length; i+=size) {
-		//     newArr.push(arr.slice(i, i+size));
-		//   }
-		//   return newArr;
-		// };
 
 		var getDataByType = function(originalArr, type){
 			// Create a new Array & new Object to hold
@@ -100,7 +93,7 @@
 			    result.push({name: prop, month: monthObj});
 			  }
 			}
-
+			// console.log(result);
 			return result;
 		};
 

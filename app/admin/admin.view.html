@@ -1,0 +1,47 @@
+<section class="col-md-8">
+	<!-- Admin - Posts List -->
+	<h2 class="page-header">Edit posts</h2>
+
+	<table class="table table-bordered table-hover table-striped postsTable">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th ng-click="setOrderBy('title')">
+					Title
+					<span class="pull-right" ng-show="orderByField === 'title'">
+						<i class="glyphicon glyphicon-chevron-down" ng-show="reverseSort"></i>
+						<i class="glyphicon glyphicon-chevron-up" ng-show="!reverseSort"></i>
+					</span>
+				</th>
+				<th ng-click="setOrderBy('author')">
+					Author
+					<span class="pull-right" ng-show="orderByField === 'author'">
+						<i class="glyphicon glyphicon-chevron-down" ng-show="reverseSort"></i>
+						<i class="glyphicon glyphicon-chevron-up" ng-show="!reverseSort"></i>
+					</span>
+				</th>
+				<th ng-click="setOrderBy('date')">
+					Date
+					<span class="pull-right" ng-show="orderByField === 'date'">
+						<i class="glyphicon glyphicon-chevron-down" ng-show="reverseSort"></i>
+						<i class="glyphicon glyphicon-chevron-up" ng-show="!reverseSort"></i>
+					</span>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="post in posts
+			| orderBy: orderByField : reverseSort
+			">
+				<th scope="row">{{$index + 1}}</th>
+				<td>{{post.title}}</td>
+				<td>{{post.author}}</td>
+				<td>{{post.date | date: mediumDate}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<footer>
+		<a class="btn btn-primary" href="#">Add New Post</a>
+	</footer>
+</section>
