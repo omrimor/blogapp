@@ -8,7 +8,7 @@
         // Get the data from posts.json, pass a callback function to get
         // the custom arrays for the sidebar
         $scope.posts = dataService.get().then(function (data) {
-            $scope.posts = data.data.posts;
+            $scope.posts = data.posts;
             $scope.tags = utils.getDataByType($scope.posts, 'tags');
             $scope.authors = utils.getDataByType($scope.posts, 'author');
             $scope.dates = utils.getDataByType($scope.posts, 'date');

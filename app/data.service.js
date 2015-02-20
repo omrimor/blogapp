@@ -2,43 +2,57 @@
 	'use strict';
 	var app = angular.module('Blogapp');
 
-	app.factory('dataService', function($http, $q, utils){
+	app.factory('dataService', function($http, $q, $log, utils){
 
-		// Get data using http and store in var
-		var promise = $http.get('data/posts.json')
-		    .error(function (data, status) {
-		        console.error(status, data);
-		    });
+		var dataCache = {},
+			defer = $q.defer(),
+			postsPromise = defer.promise;
 
+		// Fetch data
+		$http.get('data/posts.json')
+		.success(function (data, status){
+			dataCache.posts = data.posts;
+			defer.resolve(dataCache);
+		})
+		.error(function (data, status){
+			$log.error(status, data);
+		});
+
+		// Public API
 		return {
-			 get: function(id){
-			 	if(id){
-			 		return this.getById(id);
-			 	}
-		        return promise;
-			 },
+			get: function (id){
+				if(id){
+					return this.getById(id);
+				}
+				return postsPromise;
+			},
+			getById: function (id){
+				var defer = $q.defer();
 
-			 getById: function(id){
-			 	var defer = $q.defer();
+			 	// Varify the data is ready, even if the data is already fetched
+				postsPromise.then(function (data){
+					// Compare the same title
+					var prettyId = utils.prettyUrl(id);
 
-			 	// Varify the data is ready
-			 	promise.then(function(data){
-			 		var prettyId;
-			 		prettyId = utils.prettyUrl(id);
+					// Filter the data to the relevant post
+					$.each(data.posts, function (inx, post){
+						if(utils.prettyUrl(post.title) === prettyId){
+							defer.resolve(post);
 
-			 		// Filter the data and get only requested post
-			 		$.each(data.data.posts, function(inx, post){
-			 			if(utils.prettyUrl(post.title) === prettyId){
-			 				defer.resolve(post);
-			 				return false;
-			 			}
-			 		});
-			 	});
+							// Stop the loop
+							return false;
+						}
+					});
+				});
 
-			 	return defer.promise;
-			 }
+				return defer.promise;
+			},
+			savePost: function(newPost){
+				if(newPost){
+					return postsPromise;
+				}
+			}
 		};
-
 	});
 
 }());

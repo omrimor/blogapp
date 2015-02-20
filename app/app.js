@@ -22,6 +22,16 @@
 				controller: 'AdminCtrl',
 				activetab: 'admin'
 			})
+			.when('/admin/edit/post/:title',{
+				templateUrl: 'app/admin/edit.view.html',
+				controller: 'EditPostCtrl',
+				activetab: 'admin'
+			})
+			.when('/admin/new/post',{
+				templateUrl: 'app/admin/edit.view.html',
+				controller: 'NewPostCtrl',
+				activetab: 'admin'
+			})
 			.otherwise({
 				redirectTo: '/'
 			});
