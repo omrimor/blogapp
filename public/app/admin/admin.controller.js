@@ -6,10 +6,9 @@
 	app.controller('AdminCtrl', function($rootScope, $scope, $routeParams, $location, $filter,
 					dataService, utils){
 
-		console.log('AdminCtrl');
 		$rootScope.hideSideBar = false;
 
-		$scope.posts = dataService.get().then(function (data) {
+		dataService.get().then(function (data) {
 			var posts;
 		    posts = $filter('filterBy')(data.posts);
 		    posts = $filter('orderBy')(posts, '-date');
@@ -26,6 +25,10 @@
 		$scope.setOrderBy = function(value){
 			$scope.orderByField = value;
 			$scope.reverseSort = !$scope.reverseSort;
+		};
+
+		$scope.editPost = function(title){
+			$location.path('/admin/edit/post/' + utils.prettyUrl(title));
 		};
 
 	});

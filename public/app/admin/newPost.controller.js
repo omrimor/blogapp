@@ -10,16 +10,14 @@
 		$scope.generalAlert = false;
 		$scope.titleAlert = false;
 
-		$scope.posts = dataService.get().then(function (data) {
-			var posts;
-		    posts = $filter('filterBy')(data.posts);
-		    posts = $filter('orderBy')(posts, '-date');
-		    $scope.posts = posts;
-		});
+		$scope.path = $location.path();
 
-
-		// TODO:
-		// The “Delete Post” button should be hidden!
+		$scope.isEditMode = function(path){
+			if(path === '/admin/new/post'){
+				return false;
+			}
+			return true;
+		};
 
 		marked.setOptions({
 		  // GitHub Flavored Markdown
@@ -47,16 +45,12 @@
 			return html;
 		};
 
-		$scope.isEditMode = function(path){
-			console.log(path);
-		};
+		$scope.submitNewPost = function(post){
 
-		$scope.submitNewPost = function(newPost){
 			// Make sure the title is unique
 			$($scope.posts).each(function(inx, obj){
 				if($scope.addNewPost.postTitle.$valid){
-					if(obj.title === $scope.newPost.title){
-						console.log($scope.newPost.title);
+					if(obj.title === $scope.post.title){
 						$scope.generalAlert = false;
 						$scope.titleAlert = true;
 						$scope.addNewPost.postTitle.$invalid = true;
@@ -71,36 +65,31 @@
 				$scope.generalAlert = true;
 			}
 
-			// If for is valid
+			// If form is valid
 			if($scope.addNewPost.$valid) {
 				// Remove the alert message
 				$scope.generalAlert = false;
 
 				// Assign date to the newPost
-				var dateObj = new Date();
-				var newDate = dateObj.getTime();
-				newPost.date = newDate;
+				var date = new Date();
+				var newDate = date.getTime();
+				post.date = newDate.toString();
 
 				// Make the string of tags input into array
-				if(newPost.tags){
-					var tagsArr = newPost.tags.split(',');
-					newPost.tags = tagsArr;
+				if(post.tags){
+					var tagsArr = post.tags.split(',');
+					post.tags = tagsArr;
 				}
 
-				// Save the newPost into posts array
-				$scope.posts = dataService.savePost(newPost).then(function (data) {
-					var posts;
-					newPost = angular.copy(newPost);
-					data.posts.push(newPost);
-					posts = data.posts;
-					$scope.posts = posts;
-				});
+				dataService.save(post.title, post)
+		            .then(function (data) {
+						// Redirect back to the admin panel
+						$location.path('/admin');
 
-				// Redirect back to the admin panel
-				$location.path('/admin');
+	            });
+
 			}
 		};
-
 
 	});
 

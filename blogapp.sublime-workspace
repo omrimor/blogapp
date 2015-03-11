@@ -1,0 +1,470 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"month",
+				"monthObj"
+			],
+			[
+				"scop",
+				"$scope	AngularJS"
+			],
+			[
+				"lo",
+				"location"
+			],
+			[
+				"sear",
+				"searchVal"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/app/admin/edit.view.html",
+			"settings":
+			{
+				"buffer_size": 2948,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/app/admin/newPost.controller.js",
+			"settings":
+			{
+				"buffer_size": 2548,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server.js",
+			"settings":
+			{
+				"buffer_size": 2126,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 400.0,
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"re",
+				"Package Control: Remove Package"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"insa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 538.0
+	},
+	"console":
+	{
+		"height": 552.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2deb499853c4371624f5a07e27c334aa' + 'bf8c4e67d14fb0525ba4f89698a6d7e1'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/omrim/Documents/Personal/Sites/blogapp",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/modules",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/public/app",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/public/app/admin"
+	],
+	"file_history":
+	[
+		"/Users/omrim/Documents/Personal/Sites/blogapp/modules/data.js",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/public/app/admin/editPost.controller.js",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/app/sortByYear.filter.js",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/app/byType.filter.js",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/Gruntfile.js",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/node_modules/grunt/node_modules/grunt-legacy-util/test/fixtures/Gruntfile-execArgv.js",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/node_modules/grunt/node_modules/getobject/lib/getobject.js",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/app/utils.service.js",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/app/sideBarFilter.filter.js",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/data/posts.json",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/app/posts/singlePost.controller.js",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/app/data.service.js",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/app/sidebar/sidebar.view.html",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/index.html",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/app/posts/singlePost.view.html",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/node_modules/grunt-contrib-connect/node_modules/connect/node_modules/body-parser/node_modules/iconv-lite/encodings/dbcs-data.js",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/readme-issue.js",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/app/sidebar/sidebar.controller.js",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/app/posts/posts.view.html",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/app/posts/posts.controller.js",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/post.html",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/package.json",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/node_modules/grunt/appveyor.yml",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/app/app.js",
+		"/Users/omrim/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/Users/omrim/Library/Application Support/Sublime Text 3/Packages/User/Snippets/JavaScript/function-(self invoking).sublime-snippet",
+		"/Users/omrim/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/try-catch.sublime-snippet",
+		"/Users/omrim/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/setTimeout-function.sublime-snippet",
+		"/Users/omrim/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/return-true.sublime-snippet",
+		"/Users/omrim/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/if-___-else.sublime-snippet",
+		"/Users/omrim/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/hasOwnProperty.sublime-snippet",
+		"/Users/omrim/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/function-(self invoking).sublime-snippet",
+		"/Users/omrim/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/function-(fun).sublime-snippet",
+		"/Users/omrim/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/function-(anonymous).sublime-snippet",
+		"/Users/omrim/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/forin.sublime-snippet",
+		"/Users/omrim/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/for-()-{}-(faster).sublime-snippet",
+		"/Users/omrim/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/console.log_msg_val.sublime-snippet",
+		"/Users/omrim/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/use-strict.sublime-snippet",
+		"/Users/omrim/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/console.log_msg.sublime-snippet",
+		"/Users/omrim/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/omrim/Library/Application Support/Sublime Text 3/Packages/User/Snippets/js/console.log.sublime-snippet",
+		"/Users/omrim/Documents/Personal/Sites/blogapp/node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/argument_parser.js",
+		"/Users/omrim/Desktop/stuff/UI&GUI-libraries/UI library/js/main.js",
+		"/Users/omrim/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"filterParams",
+			"splitArrr",
+			"arr",
+			"author",
+			"category",
+			"tags",
+			"author",
+			"title",
+			"search",
+			"item",
+			"argument",
+			"postsData",
+			"Hello"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "public/app/admin/edit.view.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2948,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2895,
+								2895
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 874.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "public/app/admin/newPost.controller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2548,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								328,
+								328
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "server.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2126,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 489.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "blogapp.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"uti",
+				"app/utils.service.js"
+			],
+			[
+				"by",
+				"app/sortByYear.filter.js"
+			],
+			[
+				"side",
+				"app/sideBarFilter.filter.js"
+			],
+			[
+				"posts",
+				"data/posts.json"
+			],
+			[
+				"in",
+				"index.html"
+			],
+			[
+				"inde",
+				"index.html"
+			],
+			[
+				"po",
+				"data/posts.json"
+			],
+			[
+				"data",
+				"app/data.service.js"
+			],
+			[
+				"index",
+				"index.html"
+			],
+			[
+				"singl",
+				"app/posts/singlePost.view.html"
+			],
+			[
+				"sing",
+				"app/posts/singlePost.controller.js"
+			],
+			[
+				"da",
+				"app/data.service.js"
+			],
+			[
+				"util",
+				"app/utils.service.js"
+			],
+			[
+				"poss",
+				"app/posts/posts.controller.js"
+			],
+			[
+				"app",
+				"app/app.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 166.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
