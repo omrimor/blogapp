@@ -65,30 +65,36 @@
 			save: function (title, post) {
 				var defer = $q.defer();
 
+				// Send POST req
 			    $http.post('/posts', {
 			        title: title,
 			        data: post
 			    })
+			    // Get the new post data from the server
+			    // Add it to dataCache object
+			    // Resolve the promise
 		        .success(function (data, status) {
 		        	dataCache.posts.push(data);
 		            defer.resolve(dataCache);
 		        });
-
 			    return defer.promise;
 			},
 
 			deletePost: function(title) {
 				var defer = $q.defer();
 
+				// Send DELETE req
 			    $http['delete']('/posts/' + title)
+				    // Get the deleted post title data from server
+				    // Run through the posts array, match against post title
+				    // remove the post from the array
 			        .success(function (data, status) {
 			        	dataCache.posts.forEach(function(elm, inx){
 			        		if(elm.title === data){
 			        			dataCache.posts.splice(inx, 1);
-					            defer.resolve(dataCache);
 			        		}
 			        	});
-			        	console.log('im dataCache.posts after!! splice',dataCache,dataCache.posts.length);
+			            defer.resolve(dataCache);
 			        });
 
 			    return defer.promise;

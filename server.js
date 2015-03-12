@@ -98,11 +98,10 @@ app.post('/posts', function (req, res) {
 
 // Handle DELETE request to delete existing post
 app['delete']('/posts/:title', function (req, res) {
-	// console.log(req.method, req.path, req.body);
+	console.log(req.method, req.path, req.body);
 
+	// Decode the param title
 	var decodeTitle = decodeURI(req.params.title);
-
-	console.log('im the title',decodeTitle);
 
 	// Read existing data
 	fs.readFile(postsPath, function (err, data) {
@@ -112,13 +111,12 @@ app['delete']('/posts/:title', function (req, res) {
 			return res.status(501).send(null);
 		}
 
-		// Add the new user to the users data array
 		data = JSON.parse(data);
 		var posts = data.posts;
-		// console.log('im before splice',posts,posts.length);
 
-		// Find the spesific post
-		// Update its data - go over all the posts
+		// Run through posts array
+		// Match post title against the req title
+		// When match, remove the post from array
 		posts.forEach(function(elm, inx){
 			if(elm.title === decodeTitle){
 				posts.splice(inx, 1);
@@ -130,9 +128,7 @@ app['delete']('/posts/:title', function (req, res) {
 			// Status 201 means "Request fulfilled, and a resource was created"
 			res.status(201);
 			// Send back the same data we received (best practice)
-			// res.send(data);
 			res.send(req.params.title);
-			// console.log('im going back to the user',decodeTitle);
 		});
 	});
 });

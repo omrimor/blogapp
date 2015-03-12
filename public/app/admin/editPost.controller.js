@@ -69,21 +69,18 @@
 
 				dataService.save(postTitleToServer, post)
 		            .then(function (data) {
-		            	// post = angular.copy(post);
+						// Redirect back to the admin panel
 						$location.path('/admin');
 	            });
 			}
-
-			// Redirect back to the admin panel
 		};
 
 		$scope.deletePost = function(post){
-
 			dataService.deletePost(post.title)
 	            .then(function (data) {
-	            	console.log('im data in EditPostCtrl',data);
+					// Redirect back to the admin panel
+					$location.path('/admin');
             });
-
 		};
 
 	});
