@@ -83,6 +83,11 @@
 
 				dataService.save(post.title, post)
 		            .then(function (data) {
+
+		            	// Broadcast the new data to the sideBarCtrl
+		            	// to add to the sidebar filters objects
+		            	$rootScope.$broadcast('newPostAdded', { data: data });
+
 						// Redirect back to the admin panel
 						$location.path('/admin');
 

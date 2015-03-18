@@ -41,6 +41,7 @@
 				}
 				return postsPromise;
 			},
+
 			getById: function (id){
 				var defer = $q.defer();
 

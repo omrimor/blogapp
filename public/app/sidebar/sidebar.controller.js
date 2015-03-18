@@ -2,22 +2,31 @@
     'use strict';
     var app = angular.module('Blogapp');
 
-    app.controller('SideBarCtrl', function($scope, $routeParams, $location,
-                    dataService, utils, byTypeFilter, sortByYearFilter){
+    app.controller('SideBarCtrl', function($scope, $routeParams, $location, $filter,
+                    dataService, utils){
 
-        // Get the data from posts.json, pass a callback function to get
-        // the custom arrays for the sidebar
-        $scope.posts = dataService.get().then(function (data) {
+        dataService.get().then(function (data) {
             $scope.posts = data.posts;
             $scope.tags = utils.getDataByType($scope.posts, 'tags');
             $scope.authors = utils.getDataByType($scope.posts, 'author');
             $scope.dates = utils.getDataByType($scope.posts, 'date');
             $scope.orderDates = utils.getDataByYear($scope.dates);
+
+            $scope.postsLen = $scope.posts.length;
         });
 
-        $scope.postsLen = $scope.posts.length;
-        $scope.prettyUrlToLower = utils.prettyUrlToLower;
+        // Recieve the broadcast from the newPostCtrl
+        // update the sidebar objects with the new data
+        $scope.$on('newPostAdded', function(event, args) {
+            var posts = args.data.posts;
 
+            $scope.tags = utils.getDataByType(posts, 'tags');
+            $scope.authors = utils.getDataByType($scope.posts, 'author');
+            $scope.dates = utils.getDataByType($scope.posts, 'date');
+            $scope.orderDates = utils.getDataByYear($scope.dates);
+        });
+
+        $scope.prettyUrlToLower = utils.prettyUrlToLower;
 
         $scope.search = function (query) {
               $location.search('');
@@ -47,7 +56,7 @@
                 $scope.currentFilter = splitArr[0];
             }
 
-            // In the first run , angular throws an undefined ot the name
+            // In the first run , angular throws an undefined of the name
             if(name === undefined){
                 name = $scope.currentPath;
             }

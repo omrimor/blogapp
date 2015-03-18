@@ -49,7 +49,6 @@
 			    result.push({name: prop, num: obj[prop]});
 			  }
 			}
-
 			return result;
 		};
 
@@ -93,7 +92,6 @@
 			    result.push({name: prop, month: monthObj});
 			  }
 			}
-			// console.log(result);
 			return result;
 		};
 

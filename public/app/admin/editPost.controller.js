@@ -69,6 +69,9 @@
 
 				dataService.save(postTitleToServer, post)
 		            .then(function (data) {
+
+		            	console.log(data);
+
 						// Redirect back to the admin panel
 						$location.path('/admin');
 	            });
